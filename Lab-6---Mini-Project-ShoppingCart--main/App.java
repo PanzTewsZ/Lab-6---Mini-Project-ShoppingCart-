@@ -87,9 +87,9 @@ public class App{
         check("Bulk Strategy (above threshold)", pricingService.calculateItemPrice(tenSodas) == 45.0);
         check("Default Strategy", pricingService.calculateItemPrice(normalBread) == 60.0);
 
-        pricingService.addStrategy("P001", new BulkDiscountStrategy(3, 0.50)); // เปลี่ยนโปรโมชัน Apple เป็นซื้อ 3 ลด 50%
-        CartItem threeApples = new CartItem(apple, 3);
-        check("Promotion update works", pricingService.calculateItemPrice(threeApples) == 15.0); // 30 * 0.5 = 15.0
+        pricingService.addStrategy("P001", new BulkDiscountStrategy(4, 0.50)); // เปลี่ยนโปรโมชัน Apple เป็นซื้อ 3 ลด 50%
+        CartItem threeApples = new CartItem(apple, 4);
+        check("Promotion update works", pricingService.calculateItemPrice(threeApples) == 20.0); // 30 * 0.5 = 15.0
 
         System.out.println("\n--- Testing ProductCatalog ---");
         check("Find existing product", catalog.findById("P001").equals(apple));
